@@ -1,0 +1,54 @@
+How to trigger event:
+
+
+The event is triggered by clicking on the screen.
+
+
+
+What should happen:
+
+
+After clicking on the screen, a group of Sinkhole entities is created of a random size between 1 and 3,
+ indicating how many rings from the center there are. 
+The screen also rumbles back and forth,
+ the extent of which depending on the Sinkhole size.
+The Sinkhole acts as an intraversable obstacle to moving entities.
+
+There is a 50% chance that one block on the outermost ring will be saved, with a 25% chance of recursing the random saving.
+
+There is also an 8% chance that any sinkhole on the outermost ring will be replaced by an alien.
+
+These aliens chase after MinerNotFull entities and turn them into randomCreature entities,
+ which are only converted back to miners when they collect 2 ore. 
+When the aliens die, 
+they have a 50% chance to create another sinkhole.
+After 30 moves, if the randomCreatures havent gotten enough ore, 
+they turn into Lawnmower entities, which clean up the sinkholes.
+
+
+
+Further description of entities:
+
+
+Sinkhole - the group of sinkhole entites has a source, located at the mouse click, 
+from which the other sinkholes eminate in rings. The source handles creating the other sinkholes around it, 
+and shaking the screen. the other sinkholes simply occupy space and dont perform actions.
+
+
+
+Alien - the alien entity first rises out of the gound (though almost too quickly to see), 
+before beginging to chase after miners and convert them into randomCreatures. 
+These aliens are set to have a max lifespan of 30 moves before disappearing.
+
+
+
+RandomCreature - the randomCreature entity randomly selects between either a raccoon, snake, or rat. 
+
+These entities behave similarly to minerNotFulls, but move faster. As such,
+ they are also returned to being
+ a miner after colecting 2 ore. 
+
+
+
+Lawnmower - these entities move slowly after sinkholes and slowly remove the sinkhole objects until they turn 
+back into miners after 30 moves.
